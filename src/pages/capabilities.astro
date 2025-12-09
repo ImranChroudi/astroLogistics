@@ -1,267 +1,298 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Section from '../components/ui/Section.astro';
-import Card from '../components/ui/Card.astro';
-import Button from '../components/ui/Button.astro';
-import CapabilityAccordion from '../components/react/CapabilityAccordion';
-import { Image } from 'astro:assets';
-import ImageReveal from '../components/react/ImageReveal';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/ui/Section.astro";
+import Card from "../components/ui/Card.astro";
+import Button from "../components/ui/Button.astro";
+import CapabilityAccordion from "../components/react/CapabilityAccordion";
+import { Image } from "astro:assets";
+import ImageReveal from "../components/react/ImageReveal";
 
-import warehouseImg from '@assets/photo-1566576721346-d4a3b4eaeb55.jpg';
-import manufacturingImg from '@assets/photo-1581091226825-a6a2a5aee158.jpg';
-import transportationImg from '@assets/photo-1601584115197-04ecc0da31d7.jpg';
-import supplyChainImg from '@assets/photo-1460925895917-afdab827c52f.jpg';
-import valueAddedServicesImg from '@assets/photo-1558618666-fcd25c85cd64.jpg';
-import technologyIntegrationImg from '@assets/photo-1558494949-ef010cbdcc31.jpg';
-import heroBgImg from '@assets/photo-1586528116311-ad8dd3c8310d.jpg';
-import ctaBgImg from '@assets/photo-1553413077-190dd305871c.jpg';
+import warehouseImg from "@assets/photo-1566576721346-d4a3b4eaeb55.jpg";
+import manufacturingImg from "@assets/photo-1581091226825-a6a2a5aee158.jpg";
+import transportationImg from "@assets/photo-1601584115197-04ecc0da31d7.jpg";
+import supplyChainImg from "@assets/photo-1460925895917-afdab827c52f.jpg";
+import valueAddedServicesImg from "@assets/photo-1558618666-fcd25c85cd64.jpg";
+import technologyIntegrationImg from "@assets/photo-1558494949-ef010cbdcc31.jpg";
+import ctaBgImg from "@assets/photo-1553413077-190dd305871c.jpg";
 
 const capabilities = [
   {
-    title: 'Warehousing & Storage',
-    description: 'State-of-the-art warehousing facilities equipped with advanced inventory management systems, climate control, and 24/7 security.',
+    title: "Warehousing & Storage",
+    description:
+      "State-of-the-art warehousing facilities equipped with advanced inventory management systems, climate control, and 24/7 security. Our facilities offer climate-controlled storage to maintain product integrity, automated inventory tracking for precise stock management, cross-docking capabilities for efficient logistics, hazmat certified facilities for specialized storage needs, and real-time stock visibility to keep you informed at all times.",
     icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
     </svg>`,
     image: warehouseImg,
-    features: [
-      'Climate-controlled storage',
-      'Automated inventory tracking',
-      'Cross-docking capabilities',
-      'Hazmat certified facilities',
-      'Real-time stock visibility'
-    ]
   },
   {
-    title: 'Manufacturing Services',
-    description: 'ISO 9001 certified manufacturing with precision engineering, quality control, and flexible production capabilities.',
+    title: "Manufacturing Services",
+    description:
+      "ISO 9001 certified manufacturing with precision engineering, quality control, and flexible production capabilities. We specialize in CNC machining and fabrication, assembly and kitting services, comprehensive quality inspection, prototype development for innovative projects, and custom tooling and fixtures tailored to your specific requirements.",
     icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
     </svg>`,
     image: manufacturingImg,
-    features: [
-      'CNC machining & fabrication',
-      'Assembly & kitting',
-      'Quality inspection',
-      'Prototype development',
-      'Custom tooling & fixtures'
-    ]
   },
   {
-    title: 'Transportation & Distribution',
-    description: 'Comprehensive multi-modal transportation network ensuring efficient, reliable delivery across all regions.',
+    title: "Transportation & Distribution",
+    description:
+      "Comprehensive multi-modal transportation network ensuring efficient, reliable delivery across all regions. Our extensive fleet and logistics expertise enable us to handle shipments of any size, from small parcels to large-scale industrial cargo. We provide ground transportation solutions for both LTL (Less Than Truckload) and FTL (Full Truckload) shipments, ensuring cost-effective delivery for domestic routes. For time-sensitive shipments, our air freight services guarantee expedited delivery worldwide with real-time tracking and professional handling. Our ocean freight capabilities connect you to global markets with competitive rates and flexible scheduling options for international trade.",
     icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
     </svg>`,
     image: transportationImg,
-    features: [
-      'Ground transportation (LTL/FTL)',
-      'Air freight services',
-      'Ocean freight',
-      'Last-mile delivery',
-      'Route optimization'
-    ]
   },
   {
-    title: 'Supply Chain Management',
-    description: 'End-to-end supply chain solutions with advanced analytics, forecasting, and optimization capabilities.',
+    title: "Supply Chain Management",
+    description:
+      "Comprehensive multi-modal transportation network ensuring efficient, reliable delivery across all regions. We provide ground transportation for both LTL and FTL shipments, air freight services for time-sensitive cargo, ocean freight for international shipping, last-mile delivery solutions, and advanced route optimization to ensure your products arrive on time and in perfect condition.",
     icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
     </svg>`,
     image: supplyChainImg,
-    features: [
-      'Demand forecasting',
-      'Inventory optimization',
-      'Network design',
-      'Risk management',
-      'Performance analytics'
-    ]
   },
   {
-    title: 'Value-Added Services',
-    description: 'Comprehensive value-added services to enhance your product offerings and streamline operations.',
+    title: "Value-Added Services",
+    description:
+      "Comprehensive value-added services to enhance your product offerings and streamline operations. We go beyond basic logistics to provide integrated solutions that add tangible value to your business. Our service portfolio includes professional packaging and labeling customization, allowing you to maintain brand consistency while optimizing for shipping efficiency. We offer product assembly and kitting services that prepare items for immediate resale or distribution, reducing complexity in your supply chain and enabling faster time-to-market.",
     icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
     </svg>`,
     image: valueAddedServicesImg,
-    features: [
-      'Product labeling & packaging',
-      'Returns management',
-      'Quality inspection',
-      'Kit assembly',
-      'Custom packaging design'
-    ]
   },
   {
-    title: 'Technology & Integration',
-    description: 'Advanced technology platform with seamless integration capabilities for complete visibility and control.',
+    title: "Technology & Integration",
+    description:
+      "Comprehensive multi-modal transportation network ensuring efficient, reliable delivery across all regions. Our extensive fleet and logistics expertise enable us to handle shipments of any size, from small parcels to large-scale industrial cargo. We provide ground transportation solutions for both LTL (Less Than Truckload) and FTL (Full Truckload) shipments, ensuring cost-effective delivery for domestic routes. For time-sensitive shipments, our air freight services guarantee expedited delivery worldwide with real-time tracking and professional handling. Our ocean freight capabilities connect you to global markets with competitive rates and flexible scheduling options for international trade.",
     icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
     </svg>`,
     image: technologyIntegrationImg,
-    features: [
-      'WMS & TMS integration',
-      'EDI & API connectivity',
-      'Real-time tracking',
-      'Automated reporting',
-      'Mobile applications'
-    ]
-  }
+  },
 ];
 ---
 
 <BaseLayout title="Our Capabilities - SmartLogistics">
   <!-- Hero Section -->
-  <section class="relative h-[70vh] min-h-[500px] flex items-center overflow-hidden">
-    <!-- Background Image with Overlay -->
-    <div class="absolute inset-0">
-      <Image 
-        src={heroBgImg}
-        alt="Modern logistics and manufacturing capabilities"
-        class="w-full h-full object-cover"
-        width={2070}
-        height={1380}
-      />
-      <div class="absolute inset-0 bg-linear-to-r from-slate-900/95 via-slate-900/80 to-slate-900/50"></div>
-    </div>
-
-    <!-- Content -->
-    <div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto text-center">
-        <div class="inline-flex items-center px-4 py-2 mb-6 bg-linear-to-r from-blue-600 to-teal-600 text-white text-sm font-semibold rounded-full shadow-lg">
-          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
-          </svg>
-          Comprehensive Solutions
+  <Section
+    class="relative h-[70vh] bg-primary min-h-[500px] flex items-center overflow-hidden"
+  >
+    <div
+      class="lg:grid flex flex-col-reverse w-full lg:grid-cols-2 col-span-1 items-center"
+    >
+      {/* Left Content */}
+      <div
+        class="lg:py-[110px] sm:py-[80px] py-[30px] lg:text-left text-center sm:pr-[20px] col-span-1"
+      >
+        <div>
+          <h1
+            class="md:text-[65px] text-white sm:tracking-normal tracking-[-1.5px] leading-[50px] md:leading-[65px] text-[54px] md:mb-[20px] font-semibold"
+          >
+            Our <span class="text-secondary">Capabilities</span>
+          </h1>
+          <div>
+            <p
+              class="paragraph text-[18px] text-white font-regular mb-[30px] pr-[40px]"
+            >
+              Comprehensive logistics and manufacturing solutions designed to
+              optimize your operations and drive sustainable growth.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <Button
+              href="/get-started"
+              size="lg"
+              class="bg-[#00cc61] px-[100px] rounded-full text-white shadow-2xl"
+            >
+              Get Started Now
+            </Button>
+          </div>
         </div>
-        
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-          Our <span class=" bg-clip-text bg-linear-to-r text-[#00cc61]">
-            Capabilities
-          </span>
-      </h1>
-        
-        <p class="text-xl md:text-2xl text-slate-200 mb-8 max-w-3xl mx-auto leading-relaxed">
-        Comprehensive logistics and manufacturing solutions designed to optimize your operations 
-        and drive sustainable growth.
-      </p>
+
+        {/* Stats */}
+        <div
+          class="grid sm:grid-cols-3 grid-cols-1 gap-8 sm:pt-[70px] pt-[40px] md:pt-[80px]"
+        >
+          <div>
+            <h2
+              class="text-[44px] text-white num md:text-[48px] leading-[1] lg:text-[56px] font-medium mb-[15px]"
+            >
+              300+
+            </h2>
+            <p class="text-[16px] sora-light text-white">
+              Véhicules de Livraison
+            </p>
+          </div>
+          <div>
+            <h2
+              class="text-[44px] text-white num md:text-[48px] leading-[1] lg:text-[56px] font-medium mb-[15px]"
+            >
+              24/7
+            </h2>
+            <p class="text-[16px] sora-light text-white">
+              Disponibilité Totale
+            </p>
+          </div>
+          <div>
+            <h2
+              class="text-[44px] text-white num md:text-[48px] leading-[1] lg:text-[56px] font-medium mb-[15px]"
+            >
+              15+
+            </h2>
+            <p class="text-[16px] sora-light text-white">ans d'expérience</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Image */}
+      <div
+        class="relative w-full lg:min-h-[100%] overflow-hidden max-h-[415px] md:min-h-[631px] md:max-h-[631px] bg-hero-section col-span-1"
+      >
+        <Image
+          src={"https://images.unsplash.com/photo-1634638022845-1ab614a94128?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2hhJUMzJUFFbmUlMjBsb2dpc3RpcXVlfGVufDB8fDB8fHww"}
+          alt="Modern logistics and manufacturing capabilities"
+          class="w-full h-full object-cover"
+          width={2070}
+          height={1380}
+        />
+        <div
+          class="absolute inset-x-0 bottom-0 backdrop-blur-[20px] md:pb-[50px] pb-[30px] py-[30px] md:px-[30px]"
+        >
+          <p
+            class="md:text-[32px] text-[26px] text-white font-medium text-center poppins-semibold"
+          >
+            Livraison urgente ?<br />
+            <b class="font-bold">On livre tout!</b>
+          </p>
+        </div>
       </div>
     </div>
-  </section>
+  </Section>
+
+
+   <!-- Process Section -->
+  <Section background="white">
+    <div class="flex">
+      <div class="pr-[100px] mb-16">
+        <div
+          class="inline-block px-4 py-2 mb-4 text-primary bg-green-200 text-sm font-semibold rounded-full"
+        >
+          Our Approach
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Our <br /><span class="bg-clip-text bg-linear-to-r text-secondary"
+            >Process</span
+          >
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          A streamlined approach to deliver exceptional<br /> results every time.
+        </p>
+        <div class="flex flex-col sm:flex-row mt-[30px] gap-4">
+          <Button
+            href="/get-started"
+            size="lg"
+            class="bg-[#00cc61] px-[50px] rounded-full text-white shadow-sm"
+          >
+            Get Started Now
+          </Button>
+        </div>
+      </div>
+
+      <div class="grid process grid-cols-1 gap-8">
+        {
+          [
+            {
+              step: "01",
+              title: "Consultation",
+              description: "Understand your unique requirements and challenges",
+              icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>`,
+            },
+            {
+              step: "02",
+              title: "Planning",
+              description: "Design customized solutions tailored to your needs",
+              icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>`,
+            },
+            {
+              step: "03",
+              title: "Implementation",
+              description: "Execute with precision and attention to detail",
+              icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>`,
+            },
+            {
+              step: "04",
+              title: "Optimization",
+              description: "Continuous improvement and performance monitoring",
+              icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>`,
+            },
+          ].map((process, index) => (
+            <div class="flex gap-3">
+              <div class="text-[24px] z-[11] font-bold w-[50px] h-[50px] bg-secondary text-white flex items-center justify-center rounded-full mb-2">
+                {process.step}
+              </div>
+              <div>
+                <h3 class="text-[24px] tracking-[-1px] font-semibold text-primary ">
+                  {process.title}
+                </h3>
+                <p class="text-primary text-[18px] leading-relaxed">
+                  {process.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Section>
+   
 
   <!-- Main Capabilities -->
   <Section background="gray">
     <!-- Accordion View for Mobile/Compact -->
-    <div class="lg:hidden mb-12">
-      <CapabilityAccordion capabilities={capabilities} client:load />
-    </div>
-    
+    <!-- <div class="lg:hidden mb-12">
+      <CapabilityAccordion capabilities={capabilities} />
+    </div> -->
+
     <!-- Grid View for Desktop -->
     <div class="hidden lg:block space-y-24">
-      {capabilities.map((capability, index) => (
-        <div class={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
-          <div class={`${index % 2 === 1 ? 'lg:col-start-2' : ''} Up`}>
-            <div class="flex items-center justify-center w-16 h-16 rounded-xl bg-linear-to-br from-blue-500 to-teal-500 text-white mb-6 shadow-lg">
-              <div class="w-8 h-8" set:html={capability.icon.replace('w-12 h-12', 'w-8 h-8').replace('currentColor', 'white')} />
+      {
+        capabilities.map((capability, index) => (
+          <div
+            class={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:grid-flow-dense" : ""}`}
+          >
+            <div class={`${index % 2 === 1 ? "lg:col-start-2" : ""} Up`}>
+              <h2 class="text-3xl md:text-[56px] tracking-[-2px] font-bold text-primary mb-4">
+                {capability.title}
+              </h2>
+              <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                {capability.description}
+              </p>
             </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              {capability.title}
-            </h2>
-            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-              {capability.description}
-            </p>
-            <ul class="space-y-3">
-              {capability.features.map((feature) => (
-                <li class="flex items-center space-x-3">
-                  <svg class="w-5 h-5 text-teal-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div class={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-            <ImageReveal client:load delay={index * 0.1}>
-              <div class="relative aspect-4/3 group overflow-hidden rounded-2xl shadow-2xl">
-                <Image 
+            <div
+              class={`${index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}
+            >
+              <div class="relative aspect-4/3 group overflow-hidden rounded-sm shadow-sm">
+                <Image
                   src={capability.image}
                   alt={capability.title}
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  class="w-full h-full object-cover group-hover:scale-105 "
                   width={1200}
                   height={800}
                 />
-                <div class="absolute inset-0 bg-linear-to-t from-slate-900/60 via-transparent to-transparent"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <h3 class="text-2xl font-bold mb-2">{capability.title}</h3>
-                  <p class="text-gray-200">{capability.description}</p>
-                </div>
               </div>
-            </ImageReveal>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
-  </Section>
-
-  <!-- Process Section -->
-  <Section background="white">
-    <div class="text-center mb-16">
-      <div class="inline-block px-4 py-2 mb-4 bg-blue-100 text-blue-800 text-sm font-semibold rounded-full">
-        Our Approach
-      </div>
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-        Our <span class=" bg-clip-text bg-linear-to-r from-blue-600 to-teal-600">Process</span>
-      </h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        A streamlined approach to deliver exceptional results every time.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {[
-        { 
-          step: '01', 
-          title: 'Consultation', 
-          description: 'Understand your unique requirements and challenges',
-          icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-          </svg>`
-        },
-        { 
-          step: '02', 
-          title: 'Planning', 
-          description: 'Design customized solutions tailored to your needs',
-          icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-          </svg>`
-        },
-        { 
-          step: '03', 
-          title: 'Implementation', 
-          description: 'Execute with precision and attention to detail',
-          icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>`
-        },
-        { 
-          step: '04', 
-          title: 'Optimization', 
-          description: 'Continuous improvement and performance monitoring',
-          icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-          </svg>`
-        }
-      ].map((process, index) => (
-        <Card hover class="text-center Up group" style={`animation-delay: ${index * 0.1}s`}>
-          <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-xl bg-linear-to-br from-blue-500 to-teal-500 text-white shadow-lg group-hover:scale-110 transition-transform">
-            <div set:html={process.icon} />
-          </div>
-          <div class="text-3xl font-bold  bg-clip-text bg-linear-to-r from-blue-600 to-teal-600 mb-2">{process.step}</div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">{process.title}</h3>
-          <p class="text-gray-600 leading-relaxed">{process.description}</p>
-        </Card>
-      ))}
+        ))
+      }
     </div>
   </Section>
 
@@ -269,39 +300,90 @@ const capabilities = [
   <section class="relative py-32 overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0">
-      <Image 
+      <!-- <Image
         src={ctaBgImg}
         alt="Modern warehouse operations"
         class="w-full h-full object-cover"
         width={2070}
         height={1380}
-      />
-      <div class="absolute inset-0 bg-linear-to-r from-blue-900/95 to-teal-900/95"></div>
+      /> -->
+      <div
+        class="absolute inset-0 bg-primary"
+      >
+      </div>
     </div>
 
     <!-- Content -->
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-4xl mx-auto text-center text-white">
-        <div class="inline-block px-4 py-2 mb-6 bg-white/10 backdrop-blur-sm text-white text-sm font-semibold rounded-full">
+        <div
+          class="inline-block px-4 py-2 mb-6 bg-green-200 text-primary text-sm font-semibold rounded-full"
+        >
           Get Started Today
         </div>
-        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-          Ready to Optimize with <span class=" bg-clip-text bg-linear-to-r from-blue-400 to-teal-400">SmartLogistics</span>?
-      </h2>
-        <p class="text-xl md:text-2xl text-slate-200 mb-12 max-w-2xl mx-auto leading-relaxed">
-          Let's discuss how our capabilities can transform your business and accelerate your growth.
-      </p>
-        
-        <div class="flex flex-col sm:flex-row gap-6 justify-center">
-          <Button href="/rfq" size="lg" class="bg-[#00cc61]! hover:bg-blue-700! text-white! shadow-2xl!">
-          Request a Quote
-        </Button>
-          <Button href="/facilities" size="lg" variant="outline" class="border-2! border-white! text-white! hover:bg-white/10! shadow-2xl!">
-          View Facilities
-        </Button>
+        <h2
+          class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+        >
+          Ready to Optimize with <i
+            class="bg-clip-text bg-linear-to-r from-blue-400 to-teal-400"
+            >Smart Logistics</i
+          >?
+        </h2>
+        <p
+          class="text-xl md:text-2xl text-slate-200 mb-6 max-w-2xl mx-auto leading-relaxed"
+        >
+          Fill in your info, we'll take care of the rest!
+        </p>
+        <form class="flex">
+          <input
+            type="email"
+            placeholder="Your Email"
+            class="px-5 py-5 rounded-full mr-3 bg-white/10 backdrop-blur-sm text-white text-sm font-semibold placeholder:text-white/50 placeholder:font-normal w-full"
+          />
+          <input
+            type="number"
+            placeholder="Your Phone Number"
+            class="px-5 py-5 rounded-full mr-3 bg-white/10 backdrop-blur-sm text-white text-sm font-semibold placeholder:text-white/50 placeholder:font-normal w-full"
+          />
+          <input
+            type="text"
+            placeholder="Your Company Name"
+            class="px-5 py-5 rounded-full mr-3 bg-white/10 backdrop-blur-sm text-white text-sm font-semibold placeholder:text-white/50 placeholder:font-normal w-full"
+          />
+        </form>
+
+        <div class="flex flex-col sm:flex-row mt-[20px] gap-6 justify-center">
+          <Button
+            href="/facilities"
+            size="lg"
+            variant="outline"
+            class="text-white! min-w-[300px] shadow-sm!"
+          >
+            Send
+          </Button>
         </div>
       </div>
     </div>
   </section>
+
+ 
+
+ 
 </BaseLayout>
 
+<style>
+  .process {
+    position: relative;
+  }
+
+  .process::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    width: 2px;
+    height: 80%;
+    z-index: 0;
+    background-color: #00cc61;
+  }
+</style>

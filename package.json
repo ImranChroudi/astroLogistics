@@ -23,5 +23,8 @@
     "react-dom": "^19.2.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.1.17"
+  },
+  "devDependencies": {
+    "unplugin-fonts": "^1.4.0"
   }
 }

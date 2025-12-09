@@ -6,6 +6,12 @@ html {
   @apply scroll-smooth;
 }
 
+ body {
+    font-family: "Poppins", sans-serif;
+    font-display: swap;
+  }
+
+
 .text-primary{
   color : #022545;
 }
