@@ -1,9 +1,9 @@
 // Site configuration
 export const SITE = {
-  title: 'AstroFlow',
+  title: 'SmartLogistics',
   description: 'Leading provider of optimized logistics and manufacturing solutions with state-of-the-art facilities and industry expertise.',
   url: 'https://yourdomain.com',
-  author: 'AstroFlow',
+  author: 'SmartLogistics',
 } as const;
 
 export const NAVIGATION = [

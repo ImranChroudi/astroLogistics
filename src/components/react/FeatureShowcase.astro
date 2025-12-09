@@ -1,4 +1,5 @@
-import { motion } from 'motion/react';
+---
+import { Image } from 'astro:assets';
 import { Warehouse, Truck, Package, BarChart3, Shield, Headphones } from 'lucide-react';
 
 const features = [
@@ -39,43 +40,42 @@ const features = [
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop',
   },
 ];
+---
 
-export default function FeatureShowcase() {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {features.map((feature, index) => (
         <div
-          key={feature.title}
-          className="group cursor-pointer"
+          class="group cursor-pointer"
         >
-          <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+          <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
             {/* Image */}
-            <div className="relative h-64 overflow-hidden">
-              <img
+            <div class="relative h-64 overflow-hidden">
+              <Image
                 src={feature.image}
                 alt={feature.title}
-                className="w-full h-full object-cover"
+                class="w-full h-full object-cover"
                 loading="lazy"
+                width={1200}
+                height={800}
               />
-              <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/50 to-transparent opacity-60" />
+              <div class="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/50 to-transparent opacity-60" />
               
               {/* Icon overlay */}
               <div
-                className="absolute top-4 right-4 w-12 h-12 bg-secondary rounded-lg flex items-center justify-center shadow-lg"
+                class="absolute top-4 right-4 w-12 h-12 bg-secondary rounded-lg flex items-center justify-center shadow-lg"
               >
-                <feature.icon className="w-6 h-6 text-white" />
+                <feature.icon class="w-6 h-6 text-white" />
               </div>
             </div>
 
             {/* Content */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-              <p className="text-sm text-gray-200 opacity-90">{feature.description}</p>
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+              <p class="text-sm text-gray-200 opacity-90">{feature.description}</p>
             </div>
           </div>
         </div>
       ))}
     </div>
-  );
-}
 
