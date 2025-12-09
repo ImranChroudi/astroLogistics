@@ -85,7 +85,7 @@ const technologies: Technology[] = [
           Intelligent Platform
         </div>
         
-        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+        <h2 class="text-4xl md:text-5xl font-bold text-primary leading-tig mb-6">
           Next-Generation <span class="text-secondary">Supply Chain</span> Intelligence
         </h2>
         
@@ -103,7 +103,11 @@ const technologies: Technology[] = [
                 </svg>
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-primary mb-2">{tech.title}</h3>
+                
+               <div class="flex items-center relative gap-3">
+                 <span class="w-2 h-2 rounded-full absolute left-[-20px] top-[10px] bg-secondary"></span>
+                 <h3 class="text-lg font-semibold text-primary mb-2">{tech.title}</h3>
+               </div>
                 <p class="text-primary leading-relaxed">
                   {tech.description}
                 </p>
