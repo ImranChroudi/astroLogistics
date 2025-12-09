@@ -1,0 +1,27 @@
+---
+const stats  = [
+  { value: '600', label: 'Global Clients', suffix: '+' },
+  { value: '70', label: 'Million Units Shipped', suffix: 'M+' },
+  { value: '95', label: 'On-Time Delivery', suffix: '%' },
+  { value: '13', label: 'Facilities Worldwide', suffix: '+' },
+];
+
+---
+
+
+<div  class="grid grid-cols-2 lg:grid-cols-2 gap-8 w-full">
+      {stats.map((stat, index) => (
+        <div
+          class="text-center "
+        >
+          <div
+            class="text-4xl lg:text-5xl font-bold text-white mb-2"
+          >
+            {stat.value}{stat.suffix}
+          </div>
+          <div class="text-sm text-slate-300 font-medium">{stat.label}</div>
+        </div>
+      ))}
+</div>
+
+

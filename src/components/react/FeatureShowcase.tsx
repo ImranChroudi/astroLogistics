@@ -1,0 +1,81 @@
+import { motion } from 'motion/react';
+import { Warehouse, Truck, Package, BarChart3, Shield, Headphones } from 'lucide-react';
+
+const features = [
+  {
+    icon: Warehouse,
+    title: 'Smart Storage Solutions',
+    description: 'Intelligent warehouse management with IoT sensors, automated sorting, and real-time inventory tracking.',
+    image: 'https://images.unsplash.com/photo-1667984390538-3dea7a3fe33d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fFNtYXJ0JTIwU3RvcmFnZSUyMFNvbHV0aW9uc3xlbnwwfHwwfHx8MA%3D%3D',
+  },
+  {
+    icon: Truck,
+    title: 'Global Delivery Network',
+    description: 'Worldwide shipping coverage with optimized routes and eco-friendly transport options.',
+    image: 'https://images.unsplash.com/photo-1586448911122-f74aa8e3e4b6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fEdsb2JhbCUyMERlbGl2ZXJ5JTIwTmV0d29ya3xlbnwwfHwwfHx8MA%3D%3D',
+  },
+  {
+    icon: Package,
+    title: 'Sustainable Packaging',
+    description: 'Eco-conscious manufacturing with recyclable materials and optimized packaging solutions.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+  },
+  {
+    icon: BarChart3,
+    title: 'Predictive Analytics',
+    description: 'AI-powered insights for demand forecasting, cost optimization, and supply chain planning.',
+    image: 'https://images.unsplash.com/photo-1707157281599-d155d1da5b4c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UHJlZGljdGl2ZSUyMEFuYWx5dGljc3xlbnwwfHwwfHx8MA%3D%3D',
+  },
+  {
+    icon: Shield,
+    title: 'Risk Management',
+    description: 'Comprehensive security framework with compliance certifications and threat prevention.',
+    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop',
+  },
+  {
+    icon: Headphones,
+    title: 'Expert Consultation',
+    description: 'Dedicated logistics specialists providing strategic guidance and technical support.',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop',
+  },
+];
+
+export default function FeatureShowcase() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {features.map((feature, index) => (
+        <div
+          key={feature.title}
+          className="group cursor-pointer"
+        >
+          <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+            {/* Image */}
+            <div className="relative h-64 overflow-hidden">
+              <img
+                src={feature.image}
+                alt={feature.title}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/50 to-transparent opacity-60" />
+              
+              {/* Icon overlay */}
+              <div
+                className="absolute top-4 right-4 w-12 h-12 bg-secondary rounded-lg flex items-center justify-center shadow-lg"
+              >
+                <feature.icon className="w-6 h-6 text-white" />
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+              <p className="text-sm text-gray-200 opacity-90">{feature.description}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+

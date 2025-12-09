@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+
+/* Smooth scrolling */
+html {
+  @apply scroll-smooth;
+}
+
+.text-primary{
+  color : #022545;
+}
+
+.bg-primary{
+  background-color : #022545;
+}
+
+.text-secondary{
+  color: #00cc61;
+}
+.bg-secondary{
+  background-color:  #00cc61;
+}
+.nav-active {
+  @apply after:content-[""] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1.5 after:h-1.5 after:bg-green-400 hover:after:bg-transparent after:rounded-full;
+}
+
+/* Animations */
+

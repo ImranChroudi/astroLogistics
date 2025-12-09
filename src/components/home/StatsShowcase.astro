@@ -1,0 +1,95 @@
+---
+import { Image } from 'astro:assets';
+import logisticsNetworkImg from '@assets/photo-1578575437130-527eed3abbec.jpg';
+import client1Img from '@assets/photo-1494790108377-be9c29b29330.jpg';
+import client2Img from '@assets/photo-1507003211169-0a1dd7228f2d.jpg';
+import client3Img from '@assets/photo-1438761681033-6461ffad8d80.jpg';
+import client4Img from '@assets/photo-1552664730-d307ca884978.jpg';
+import AnimatedStats from "../AnimatedStats.astro";
+
+const clients = [
+  {
+    name: "GlobalTech Solutions",
+    image: client1Img,
+    initials: "GT"
+  },
+  {
+    name: "Premium Industrial Group",
+    image: client2Img,
+    initials: "PI"
+  },
+  {
+    name: "RetailConnect Pro",
+    image: client3Img,
+    initials: "RC"
+  },
+  {
+    name: "Strategic Logistics Inc",
+    image: client4Img,
+    initials: "SL"
+  }
+];
+---
+
+<section class="relative py-32 overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0">
+    <Image 
+      src={logisticsNetworkImg}
+      alt="Global logistics network"
+      class="w-full h-full object-cover"
+      width={2070}
+      height={1380}
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-950/95 via-slate-900/92 to-slate-950/95"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-20">
+      <div class="inline-block px-4 py-2 mb-6 bg-green-200 backdrop-blur-sm text-primary text-sm font-semibold rounded-full border ">
+        Performance Metrics
+      </div>
+      <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">
+        Excellence <span class="bg-clip-text bg-gradient-to-r text-secondary">at Scale</span>
+      </h2>
+      <p class="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+        Quantifiable impact across operations, efficiency, and growth metrics that drive real business value.
+      </p>
+    </div>
+
+   <div class="lg:grid-cols-2 justify-center grid-cols-1 grid">
+    <div class="flex items-center justify-center">
+      <AnimatedStats />
+    </div>
+
+
+    <!-- Trusted By Section -->
+    <div class="lg:mt-0 mt-12">
+      <p class="text-center text-slate-400 text-sm font-semibold uppercase tracking-wider mb-12">
+        Trusted by Enterprise Leaders Worldwide
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-2 justify-center gap-6">
+        {clients.map((client) => (
+          <div class="flex items-center justify-center group col-span-1">
+            <div class="relative w-full h-24 bg-gradient-to-br from-white/10 to-white/5 hover:from-white/20 hover:to-white/10 backdrop-blur-md rounded-xl flex items-center justify-center overflow-hidden border border-white/20 hover:border-white/40 transition-all duration-300 shadow-xl hover:shadow-2xl group-hover:shadow-cyan-500/10">
+             
+              
+              <div class="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/60 to-slate-900/80"></div>
+              
+              <div class="relative z-10 text-center">
+                <div class="w-12 h-12 mx-auto mb-2 rounded-full bg-gradient-to-br bg-secondary flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                  {client.initials}
+                </div>
+                <p class="text-white font-semibold text-sm">{client.name}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div> 
+   </div>
+
+   
+  </div>
+</section>
